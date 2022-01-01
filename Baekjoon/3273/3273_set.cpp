@@ -1,13 +1,11 @@
-// fail why?
-
 #include <stdio.h>
-#include <set>
+#include <unordered_set>
 using namespace std;
 
 int main()
 {
     int N, num, ans;
-    set<int> s;
+    unordered_set<int> s;
 
     scanf("%d", &N);
 
@@ -27,6 +25,7 @@ int main()
         if (s.find(temp) != s.end())
         {
             ans++;
+            s.erase(temp);
             p1++;
         }
         else

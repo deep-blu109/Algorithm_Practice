@@ -33,13 +33,12 @@ int main()
         if (temp < min)
         {
             min = temp;
-            p2--;
+            p1++;
         }
         else
         {
             min = 2000000001;
-            p1++;
-            p2++;
+            p2--;
         }
 
         if (min < mix)
