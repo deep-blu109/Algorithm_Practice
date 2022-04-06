@@ -1,47 +1,24 @@
 #include <stdio.h>
-#include <vector>
-#include <algorithm>
+#include <queue>
 using namespace std;
 
-int main()
-{
-    int num, front;
-    scanf("%d", &num);
+int main(){
+    int n;
+    queue<int> cards;
 
-    vector<int> vec(num);
-    vector<int> vec2;
-    for (int i = 0; i < num; i++)
-    {
-        vec[i] = num - i;
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n; i++){
+        cards.push(i);
     }
 
-    int i = 0;
-    while (true)
-    {
-        if (vec.size() == 1 && vec2.empty())
-        {
-            break;
-        }
-        else if (vec.empty())
-        {
-            reverse(vec2.begin(), vec2.end());
-            vec = vec2;
-            vec2.clear();
-        }
-        else
-        {
-            if (i++ % 2 == 1)
-            {
-                int temp = vec.back();
-                vec2.push_back(temp);
-                vec.pop_back();
-            }
-            else
-            {
-                vec.pop_back();
-            }
-        }
+    while(cards.size() > 1){
+        cards.pop();
+        
+        int tmp = cards.front();
+        cards.pop();
+        cards.push(tmp);
     }
 
-    printf("%d", vec[0]);
+    printf("%d", cards.front());
 }

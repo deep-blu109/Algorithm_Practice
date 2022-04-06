@@ -12,6 +12,7 @@
             "command": "g++",
             "args": [
                 "${file}",
+                "-g",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
@@ -36,6 +37,7 @@
             "command": "gcc",
             "args": [
                 "${file}",
+                "-g",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
@@ -57,21 +59,26 @@
         },
         {
             "label": "execute",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "group": "test"
+            "command": "cmd",
+            "group": "test",
+            "args": [
+                "/C",
+                "${fileDirname}\\${fileBasenameNoExtension}"
+            ]
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: g++ 활성 파일 빌드",
-            "command": "/usr/bin/g++",
+            "label": "C/C++: g++.exe 활성 파일 빌드",
+            "command": "D:/mingw64/bin/g++.exe",
             "args": [
+                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "D:/mingw64/bin"
             },
             "problemMatcher": [
                 "$gcc"
