@@ -19,8 +19,6 @@ bool check(string str){
 
 int main(){
     int n, m, ans;
-    int channel_cnt = 1;
-    
 
     scanf("%d\n%d", &n, &m);
 
