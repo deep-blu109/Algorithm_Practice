@@ -1,0 +1,67 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+string getBinary(long long num){
+    string binary;
+    
+    while(num > 0){
+        binary += to_string(num%2);
+        num /= 2;
+    }
+    
+    return binary;
+}
+
+long long getDecimal(string binary){
+    long long num = 0;
+    
+    long long idx = 1;
+    for(auto b : binary){
+        num += (b - '0') * idx;
+        idx *= 2;
+    }
+    
+    return num;
+}
+
+vector<long long> solution(vector<long long> numbers) {
+    vector<long long> answer;
+    
+    for(auto n : numbers){
+        if(n % 2 == 0){
+            answer.push_back(n+1);
+            continue;
+        }
+        
+        string binary = getBinary(n);
+        auto pos = binary.find('0');
+        if(pos == -1){
+            auto len = binary.length();
+            binary += '1';
+            binary[len] = '0';
+        }
+        else{
+            for(int i = 0; i < binary.size(); i++){
+                if(binary[i] == '0'){
+                    binary[i] = '1';
+                    if(i > 0){
+                        binary[i-1] = '0';
+                    }
+                    break;
+                }
+            }
+            /*
+            binary[pos] = '1';
+            if(pos > 0){
+                binary[pos-1] = '0';    
+            }
+            */
+        }
+        answer.push_back(getDecimal(binary));
+    }
+    
+    return answer;
+}
