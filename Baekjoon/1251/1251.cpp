@@ -4,56 +4,49 @@
 #include <string>
 using namespace std;
 
-bool cmp(pair<string, int> a, pair<string, int> b){
-    return a.first < b.first;
+string ans;
+
+void combination(string str, int idx, int cnt, int size, vector<string> &result){
+    if(cnt == 2){
+        string now, result_str;
+        now = str.substr(idx);
+        reverse(now.begin(), now.end());
+
+        result.push_back(now);
+
+        for(string r : result){
+            result_str += r;
+        }
+
+        ans = min(ans, result_str);
+        result.pop_back();
+
+        return;
+    }
+
+    for(int i = idx; i < size; i++){
+        string now = str.substr(idx, i-idx+1);
+        reverse(now.begin(), now.end());
+        result.push_back(now);
+
+        combination(str, i+1, cnt+1, size, result);
+
+        result.pop_back();
+    }
 }
+
 
 int main(){
     char arr[51];
     string str;
-    vector<pair<string, int>> alphabat;
-    vector<int> result;
-    vector<int> order;
+    vector<string> vec;
+
     scanf("%s", &arr);
     str = arr;
-    reverse(str.begin(), str.end());
 
-    for(int i = 0; i < str.size(); i++){
-        alphabat.push_back({str.substr(i), i});
-    }
+    ans = str;
+    reverse(ans.begin(), ans.end());
+    combination(str, 0, 0, str.size()-1, vec);
 
-    sort(alphabat.begin(), alphabat.end(), cmp);
-
-    bool TF = true;
-    for(int i = 0; i < 2; i++){
-        if(alphabat[i].second == 0){
-            TF = false;
-        }
-        result.push_back(alphabat[i].second);
-    }
-
-    if(TF){
-        result.push_back(0);
-    }
-    else{
-        result.push_back(alphabat[2].second);
-    }
-
-    order = result;
-
-    sort(order.begin(), order.end());
-    
-
-    for(int now : result){
-        if(now == order[0]){
-            printf("%s", str.substr(now, order[1]-now).c_str());
-        }
-        else if(now == order[1]){
-            printf("%s", str.substr(now, order[2]-now).c_str());
-        }
-        else{
-            printf("%s", str.substr(now).c_str());
-        }
-
-    }
+    printf("%s", ans.c_str());
 }
