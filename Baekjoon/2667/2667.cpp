@@ -4,7 +4,7 @@
 #include <set>
 using namespace std;
 
-multiset<int> ans; // 정답을 저장할 multiset
+multiset<int> ans; // 정답을 저장할 multiset // 3 3 5 7
 
 int n; // 지도 크기
 vector<vector<char>> map; //지도 0 -> 빈 곳, 1 -> 건물, 2 -> 이미 체크된 건물
