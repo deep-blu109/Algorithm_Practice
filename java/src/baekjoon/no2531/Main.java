@@ -8,7 +8,6 @@ public class Main {
 
         int N, d, k, c, ans = 0;
         int[] belt = new int[30001];
-        int[] sushi= new int[3001];
         boolean[] check = new boolean[3001];
 
         N = sc.nextInt();
@@ -18,7 +17,6 @@ public class Main {
 
         for(int i = 0; i < N; i++){
             belt[i] = sc.nextInt();
-            sushi[belt[i]]++;
         }
 
         check[c] = true;
