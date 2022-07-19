@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int switchNum;
-    static int[] switch_arr;
+    static int switchNum; // 스위치의 개수
+    static int[] switch_arr; // 각 스위치의 상태
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +15,7 @@ public class Main {
 
         switchNum = Integer.parseInt(br.readLine());
         switch_arr = new int[switchNum];
-        int studentNum;
+        int studentNum; // 학생의 수
 
         st = new StringTokenizer(br.readLine(), " ");
         for(int i = 0; i < switchNum; i++){
@@ -24,21 +24,26 @@ public class Main {
 
         studentNum = Integer.parseInt(br.readLine());
 
+        // 학생의 스위치 조작
         for(int i = 0; i < studentNum; i++){
             st = new StringTokenizer(br.readLine(), " ");
-            int gender = Integer.parseInt(st.nextToken());
-            int button = Integer.parseInt(st.nextToken());
+            int gender = Integer.parseInt(st.nextToken()); // 학생의 성별 1 -> 남자, 2 -> 여자
+            int button = Integer.parseInt(st.nextToken()); // 조작을 시작하는 버튼
 
+            // 남자인 경우
             if(gender == 1) {
                 solve1(button);
             }
+            // 여자인 경우
             else {
                 solve2(button);
             }
         }
 
+        // 결과 출력
         for(int i = 0; i < switchNum; i++){
             System.out.printf("%d ", switch_arr[i]);
+            // 한줄에 20개가 출력된 경우 다음줄에 출력
             if((i+1) % 20 == 0){
                 System.out.println();
             }
