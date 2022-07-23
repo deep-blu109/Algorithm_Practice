@@ -57,7 +57,7 @@ public class Main {
             node.left = -1;
         }
 
-        if(now == 1) {
+        if(now == 1){
             flag = true;
         }
 
@@ -68,7 +68,11 @@ public class Main {
             node.right = -1;
         }
 
-        if(now != 1 && (N > 0 || !flag)){
+        if(N == 0 && flag){
+            return;
+        }
+
+        else if(now != 1){
             ans++;
         }
     }
