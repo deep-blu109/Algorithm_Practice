@@ -11,3 +11,7 @@ M
 src/baekjoon/no1072/Main.java,6/2/626c07de432827ab2aebb155874667aa123662de
 N
 src/baekjoon/no16564/Main.java,9/f/9f9c643e2b7c197f44f220a302ecc2404d60a653
+M
+src/baekjoon/no2343/Main.java,9/8/984160e0f4e948b50ab6c863a3e5f9a90de2d822
+M
+src/baekjoon/no2660/Main.java,f/8/f80b2437e806fedaf69a0ae44963ffdacac4feec
