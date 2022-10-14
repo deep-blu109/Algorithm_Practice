@@ -1,12 +1,0 @@
-
-n	java:S1350"YReduce the total number of break and continue statements in this loop to use at most one.(Ü¾‚
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ì£‹
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·’å©üÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Åñ©Î
-f	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÜ®õ
-k	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÂõƒşÿÿÿÿ
-2
-java:S1643%"Use a StringBuilder instead.(å×‚Ã
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(œû¿Ø
-S	java:S106D"9Replace this use of System.out or System.err by a logger.(Å­Ëİúÿÿÿÿ

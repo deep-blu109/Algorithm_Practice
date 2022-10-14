@@ -1,5 +1,0 @@
-
-g
-java:S3008	"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûîèõşÿÿÿÿ
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Å¶áç8®¨ë¤0
-c	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«•éø
