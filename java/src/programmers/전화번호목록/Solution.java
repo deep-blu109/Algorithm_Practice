@@ -1,20 +1,27 @@
 package programmers.전화번호목록;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+
 
 class Solution {
-    public boolean solution(String[] phone_book) {
+    public static void main(String[] args) {
+        System.out.println(solution(new String[]{"1", "23", "234"}));
+    }
+
+    public static boolean solution(String[] phone_book) {
         Set<String> set = new HashSet<>();
 
-        Arrays.sort(phone_book);
+        for (String s : phone_book) {
+            set.add(s);
+        }
 
-        for (int i = 1; i < phone_book.length; i++) {
-            String s1 = phone_book[i-1].length() <= phone_book[i].length() ? phone_book[i-1] : phone_book[i];
-            String s2 = phone_book[i-1].length() > phone_book[i].length() ? phone_book[i-1] : phone_book[i];
-            //startswith 함수를 쓰면 좀더 쉽게 풀 수 있음
-            int len = s1.length();
+        for (String s : phone_book) {
+            for (int i = 1; i < s.length(); i++) {
+                String now = s.substring(0, i);
 
-            if(s1.equals(s2.substring(0, len))) return false;
+                if (set.contains(now)) return false;
+            }
         }
 
         return true;
