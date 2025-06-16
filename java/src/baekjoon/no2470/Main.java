@@ -1,4 +1,4 @@
-package baekjoon.no3273;
+package baekjoon.no2470;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,40 +13,46 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
-        int x;
-        int ans = 0;
 
         st = new StringTokenizer(br.readLine());
-
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-
-        x = Integer.parseInt(br.readLine());
 
         Arrays.sort(arr);
 
         int left = 0;
         int right = n - 1;
+        int sum = 2_000_000_001;
+        int leftAns = left;
+        int rightAns = right;
 
         while (left < right) {
-            if (left >= x) {
-                break;
+            int mid = arr[left] + arr[right];
+
+            if (Math.abs(mid) < Math.abs(sum)) {
+                sum = mid;
+
+                leftAns = left;
+                rightAns = right;
+
+                if (sum == 0) {
+                    break;
+                }
             }
 
-            int now = arr[left] + arr[right];
-
-            if (now > x) {
+            if (mid > 0) {
                 right--;
-            } else if (now == x) {
-                ans++;
-                right--;
-            } else {
+            }
+            else if (mid < 0) {
                 left++;
             }
         }
 
-        System.out.println(ans);
+        System.out.print(arr[leftAns]);
+        System.out.print(" ");
+        System.out.println(arr[rightAns]);
+
+        br.close();
     }
 }
-
